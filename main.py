@@ -2,12 +2,10 @@
 import sys
 
 from PyQt6 import QtCore, QtWidgets, QtGui
-
-
+from PyQt6.QtCore import Qt, QPoint
+from PyQt6.QtGui import QImage, QPainter, QPen
 
 from ui_mainwindow import Ui_MainWindow
-
-
 
 
 class MiniPdkWindow(QtWidgets.QMainWindow):
@@ -18,6 +16,35 @@ class MiniPdkWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
 
         # self.ui.pushButtonStart.clicked.connect(self.start_worker)
+
+        self.image = QImage(self.size(), QImage.Format.Format_RGB32)
+        self.image.fill(Qt.GlobalColor.white)
+
+        self.drawings = False
+        self.brushSize = 7
+        self.brushColor = Qt.GlobalColor.black
+        self.lastPoint = QPoint()
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.drawings = True
+            self.lastPoint = event.position()
+
+    def mouseMoveEvent(self, event):
+        if event.button() & Qt.MouseButton.LeftButton:
+            painter = QPainter(self.image)
+            painter.setPen(QPen(self.brushColor, self.brushSize, Qt.PenStyle.SolidLine))
+            painter.drawLine(self.lastPoint, event.position())
+            self.lastPoint = event.position()
+            self.update()
+
+    def mouseReleaseEvent(self, event):
+            if event.button() == Qt.MouseButton.LeftButton:
+                self.drawings = False
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.drawImage(self.rect(), self.image, self.image.rect())
 
 
 
