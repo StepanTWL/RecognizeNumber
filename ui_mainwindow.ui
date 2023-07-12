@@ -323,7 +323,15 @@
      </layout>
     </item>
     <item row="2" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout_2"/>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_2">

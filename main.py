@@ -1,17 +1,16 @@
-
 import sys
 
-from PyQt6 import QtCore, QtWidgets, QtGui
 from PyQt6.QtCore import Qt, QPoint
-from PyQt6.QtGui import QImage, QPainter, QPen
+from PyQt6.QtGui import QImage, QPainter, QPen, QPixmap
+from PyQt6.QtWidgets import QApplication, QMainWindow
 
 from ui_mainwindow import Ui_MainWindow
 
 
-class MiniPdkWindow(QtWidgets.QMainWindow):
+class Window(QMainWindow):
 
     def __init__(self):
-        QtWidgets.QMainWindow.__init__(self)
+        super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
@@ -19,6 +18,8 @@ class MiniPdkWindow(QtWidgets.QMainWindow):
 
         self.image = QImage(self.size(), QImage.Format.Format_RGB32)
         self.image.fill(Qt.GlobalColor.white)
+
+        self.ui.label_11.setPixmap(QPixmap.fromImage(self.image))
 
         self.drawings = False
         self.brushSize = 7
@@ -31,7 +32,7 @@ class MiniPdkWindow(QtWidgets.QMainWindow):
             self.lastPoint = event.position()
 
     def mouseMoveEvent(self, event):
-        if event.button() & Qt.MouseButton.LeftButton:
+        if event.buttons() & Qt.MouseButton.LeftButton:
             painter = QPainter(self.image)
             painter.setPen(QPen(self.brushColor, self.brushSize, Qt.PenStyle.SolidLine))
             painter.drawLine(self.lastPoint, event.position())
@@ -39,17 +40,17 @@ class MiniPdkWindow(QtWidgets.QMainWindow):
             self.update()
 
     def mouseReleaseEvent(self, event):
-            if event.button() == Qt.MouseButton.LeftButton:
-                self.drawings = False
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.drawings = False
 
     def paintEvent(self, event):
-        painter = QPainter(self)
-        painter.drawImage(self.rect(), self.image, self.image.rect())
+        canvasPainter = QPainter(self)
+        canvasPainter.drawImage(self.rect(), self.image, self.image.rect())
 
 
 
 if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
-    main = MiniPdkWindow()
+    app = QApplication(sys.argv)
+    main = Window()
     main.show()
     sys.exit(app.exec())
