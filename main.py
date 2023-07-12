@@ -16,10 +16,16 @@ class Window(QMainWindow):
 
         # self.ui.pushButtonStart.clicked.connect(self.start_worker)
 
-        self.image = QImage(self.size(), QImage.Format.Format_RGB32)
+        #self.image = QImage(self.size(), QImage.Format.Format_RGB32)
+        #self.image.fill(Qt.GlobalColor.white)
+
+        #self.ui.label_11.setPixmap(QPixmap(self.image))
+
+        self.image = QImage(self.ui.label_11.size().width(), self.ui.label_11.size().height(), QImage.Format.Format_RGB32)
         self.image.fill(Qt.GlobalColor.white)
 
-        self.ui.label_11.setPixmap(QPixmap.fromImage(self.image))
+        # Устанавливаем изображение в QLabel
+        #self.ui.label_11.setPixmap(QPixmap.fromImage(self.image))
 
         self.drawings = False
         self.brushSize = 7
