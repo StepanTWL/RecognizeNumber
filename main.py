@@ -21,11 +21,13 @@ class Window(QMainWindow):
 
         #self.ui.label_11.setPixmap(QPixmap(self.image))
 
-        self.image = QImage(self.ui.label_11.size().width(), self.ui.label_11.size().height(), QImage.Format.Format_RGB32)
-        self.image.fill(Qt.GlobalColor.white)
+        self.image = QImage(100,100, QImage.Format.Format_RGB32)
+        #self.image.fill(Qt.GlobalColor.black)
 
         # Устанавливаем изображение в QLabel
-        #self.ui.label_11.setPixmap(QPixmap.fromImage(self.image))
+        self.ui.label_11.setPixmap(QPixmap(self.image))
+
+        self.ui.verticalLayout_2.addWidget(self.ui.label_11)
 
         self.drawings = False
         self.brushSize = 7

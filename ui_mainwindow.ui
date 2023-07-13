@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>586</width>
-    <height>648</height>
+    <width>400</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout" rowstretch="1,10,20" columnstretch="20,2">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="1,100,250,0" columnstretch="0">
     <property name="leftMargin">
      <number>10</number>
     </property>
@@ -33,22 +33,22 @@
     <item row="1" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
-       <number>20</number>
+       <number>15</number>
       </property>
       <property name="leftMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
        <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>5</number>
-      </property>
-      <property name="bottomMargin">
        <number>0</number>
       </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
       <item>
-       <widget class="QProgressBar" name="progressBar_2">
+       <widget class="QProgressBar" name="progressBar_0">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -75,7 +75,29 @@
        </widget>
       </item>
       <item>
-       <widget class="QProgressBar" name="progressBar_4">
+       <widget class="QProgressBar" name="progressBar_1">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="progressBar_2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -119,7 +141,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QProgressBar" name="progressBar_10">
+       <widget class="QProgressBar" name="progressBar_4">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -141,7 +163,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QProgressBar" name="progressBar_9">
+       <widget class="QProgressBar" name="progressBar_5">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -229,7 +251,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QProgressBar" name="progressBar_5">
+       <widget class="QProgressBar" name="progressBar_9">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -247,87 +269,6 @@
         </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QProgressBar" name="progressBar">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="value">
-         <number>1</number>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="textVisible">
-         <bool>false</bool>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="2" column="1">
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <property name="spacing">
-       <number>5</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButtonStop">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>80</width>
-          <height>23</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Clear</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="2" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QLabel" name="label_11">
-        <property name="text">
-         <string/>
         </property>
        </widget>
       </item>
@@ -336,16 +277,16 @@
     <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <property name="spacing">
-       <number>20</number>
+       <number>15</number>
       </property>
       <property name="leftMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="label_0">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -363,7 +304,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="label_1">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -381,7 +322,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="label_2">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -399,7 +340,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="label_3">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -417,7 +358,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="label_4">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -435,7 +376,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="label_6">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -453,7 +394,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="label_5">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -471,7 +412,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="label_7">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -489,7 +430,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_9">
+       <widget class="QLabel" name="label_8">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -507,7 +448,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_10">
+       <widget class="QLabel" name="label_9">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -525,6 +466,24 @@
        </widget>
       </item>
      </layout>
+    </item>
+    <item row="2" column="0">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="tabletTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-color: rgb(255, 0, 0);
+background-color: rgb(255, 255, 255);
+border-left-color: rgb(255, 0, 0);
+border-bottom-color: rgb(255, 0, 0);
+border-right-color: rgb(255, 0, 0);
+border-top-color: rgb(255, 0, 0);</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
