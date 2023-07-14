@@ -21,18 +21,18 @@ class Window(QMainWindow):
 
         #self.ui.label_11.setPixmap(QPixmap(self.image))
 
-        self.image = QImage(100,100, QImage.Format.Format_RGB32)
+        #self.image = QImage(100,100, QImage.Format.Format_RGB32)
         #self.image.fill(Qt.GlobalColor.black)
 
         # Устанавливаем изображение в QLabel
-        self.ui.label_11.setPixmap(QPixmap(self.image))
+        #self.ui.label_11.setPixmap(QPixmap(self.image))
 
-        self.ui.verticalLayout_2.addWidget(self.ui.label_11)
+        #self.ui.verticalLayout_2.addWidget(self.ui.label_11)
 
-        self.drawings = False
-        self.brushSize = 7
-        self.brushColor = Qt.GlobalColor.black
-        self.lastPoint = QPoint()
+        #self.drawings = False
+        #self.brushSize = 7
+        #self.brushColor = Qt.GlobalColor.black
+        #self.lastPoint = QPoint()
 
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
@@ -53,7 +53,7 @@ class Window(QMainWindow):
 
     def paintEvent(self, event):
         canvasPainter = QPainter(self)
-        canvasPainter.drawImage(self.rect(), self.image, self.image.rect())
+        #canvasPainter.drawImage(self.rect(), self.image, self.image.rect())
 
 
 

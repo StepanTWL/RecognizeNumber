@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>600</height>
+    <height>552</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout" rowstretch="1,100,250,0" columnstretch="0">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="1,100,250" columnstretch="0">
     <property name="leftMargin">
      <number>10</number>
     </property>
@@ -60,11 +60,14 @@
           <pointsize>8</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
+        </property>
         <property name="value">
-         <number>1</number>
+         <number>19</number>
         </property>
         <property name="alignment">
-         <set>Qt::AlignCenter</set>
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
         </property>
         <property name="textVisible">
          <bool>false</bool>
@@ -81,6 +84,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
         </property>
         <property name="value">
          <number>1</number>
@@ -104,6 +110,9 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
+        </property>
         <property name="value">
          <number>1</number>
         </property>
@@ -125,6 +134,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
         </property>
         <property name="value">
          <number>1</number>
@@ -148,6 +160,9 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
+        </property>
         <property name="value">
          <number>1</number>
         </property>
@@ -169,6 +184,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
         </property>
         <property name="value">
          <number>1</number>
@@ -192,6 +210,9 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
+        </property>
         <property name="value">
          <number>1</number>
         </property>
@@ -213,6 +234,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
         </property>
         <property name="value">
          <number>1</number>
@@ -236,6 +260,9 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
+        </property>
         <property name="value">
          <number>1</number>
         </property>
@@ -257,6 +284,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black; border-radius: 5px;</string>
         </property>
         <property name="value">
          <number>1</number>
@@ -469,6 +499,12 @@
     </item>
     <item row="2" column="0">
      <widget class="QWidget" name="widget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>380</width>
+        <height>380</height>
+       </size>
+      </property>
       <property name="mouseTracking">
        <bool>false</bool>
       </property>
@@ -476,12 +512,7 @@
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-color: rgb(255, 0, 0);
-background-color: rgb(255, 255, 255);
-border-left-color: rgb(255, 0, 0);
-border-bottom-color: rgb(255, 0, 0);
-border-right-color: rgb(255, 0, 0);
-border-top-color: rgb(255, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255); border: 2px solid black; padding: 10px;</string>
       </property>
      </widget>
     </item>
