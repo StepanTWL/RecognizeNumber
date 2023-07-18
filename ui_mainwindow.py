@@ -13,8 +13,8 @@ from PyQt6.QtWidgets import QHBoxLayout, QLabel
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.resize(400, 552)
-        #MainWindow.setMinimumSize(QtCore.QSize(400, 552))
-        #MainWindow.setMaximumSize(QtCore.QSize(400, 552))
+        MainWindow.setMinimumSize(QtCore.QSize(400, 552))
+        MainWindow.setMaximumSize(QtCore.QSize(400, 552))
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setContentsMargins(10, 10, 10, 10)
@@ -128,7 +128,7 @@ class Ui_MainWindow(object):
         # self.gridLayout.addWidget(self.widget, 2, 0, 1, 1)
         # self.hbox = QHBoxLayout()
         self.lbl = QLabel()
-        self.image = QImage(QtCore.QSize(1400, 1400), QImage.Format.Format_RGB32)
+        self.image = QImage(QtCore.QSize(380, 380), QImage.Format.Format_RGB32)
         self.image.fill(Qt.GlobalColor.white)
         self.pixmap = QPixmap(self.image)
         self.lbl.setPixmap(self.pixmap)
