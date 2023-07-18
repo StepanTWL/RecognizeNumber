@@ -1,6 +1,6 @@
 import sys
-from PyQt5.Qt import *
-from PyQt5 import QtGui, QtCore, QtWidgets, uic
+from PyQt6 import QtGui, QtCore, QtWidgets, uic
+from PyQt6.QtWidgets import QWidget, QMainWindow, QApplication
 
 
 class Canvas(QWidget):
@@ -8,32 +8,32 @@ class Canvas(QWidget):
 		super(Canvas, self).__init__()
 		self.setFixedSize(600, 600)
 
-		self.image = QtGui.QImage(self.size(), QtGui.QImage.Format_ARGB32)
-		self.image.fill(QtCore.Qt.white)
-		self.imageDraw = QtGui.QImage(self.size(), QtGui.QImage.Format_ARGB32)
-		self.imageDraw.fill(QtCore.Qt.transparent)
+		self.image = QtGui.QImage(self.size(), QtGui.QImage.Format.Format_ARGB32)
+		self.image.fill(QtCore.Qt.GlobalColor.white)
+		self.imageDraw = QtGui.QImage(self.size(), QtGui.QImage.Format.Format_ARGB32)
+		self.imageDraw.fill(QtCore.Qt.GlobalColor.transparent)
 
 		self.drawing = False
-		self.brushSize = 10
+		self.brushSize = 15
 		self._clear_size = 20
-		self.brushColor = QtGui.QColor(QtCore.Qt.blue)
+		self.brushColor = QtGui.QColor(QtCore.Qt.GlobalColor.blue)
 		self.lastPoint = QtCore.QPoint()
 		self.change = False
 
 	def mousePressEvent(self, event):
-		if event.button() == QtCore.Qt.LeftButton:
+		if event.button() == QtCore.Qt.MouseButton.LeftButton:
 			self.drawing = True
 			self.lastPoint = event.pos()
 
 	def mouseMoveEvent(self, event):
-		if event.buttons() and QtCore.Qt.LeftButton and self.drawing:
+		if event.buttons() and QtCore.Qt.MouseButton.LeftButton and self.drawing:
 			painter = QtGui.QPainter(self.imageDraw)
 			painter.setPen(QtGui.QPen(
 				self.brushColor,
 				self.brushSize,
-				QtCore.Qt.SolidLine,
-				QtCore.Qt.RoundCap,
-				QtCore.Qt.RoundJoin
+				QtCore.Qt.PenStyle.SolidLine,
+				QtCore.Qt.PenCapStyle.RoundCap,
+				QtCore.Qt.PenJoinStyle.RoundJoin
 			))
 			if self.change:
 				r = QtCore.QRect(QtCore.QPoint(), self._clear_size * QtCore.QSize())
@@ -49,7 +49,7 @@ class Canvas(QWidget):
 			self.update()
 
 	def mouseReleaseEvent(self, event):
-		if event.button == QtCore.Qt.LeftButton:
+		if event.button == QtCore.Qt.MouseButton.LeftButton:
 			self.drawing = False
 
 	def paintEvent(self, event):
@@ -92,4 +92,4 @@ if __name__ == '__main__':
 	wnd = Window()
 	wnd.show()
 	print(wnd.size())
-	sys.exit(app.exec_())
+	sys.exit(app.exec())
