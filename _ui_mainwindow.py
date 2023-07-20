@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'E:\MyProject\Python\RecognizeNumber\_ui_mainwindow.ui'
+# Form implementation generated from reading ui file 'D:\__MY_PROJECT__\Python\RecognizeNumber\_ui_mainwindow.ui'
 #
 # Created by: PyQt6 UI code generator 6.5.1
 #

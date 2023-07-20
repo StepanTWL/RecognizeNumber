@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'E:\MyProject\Python\RecognizeNumber\ui_mainwindow.ui'
+# Form implementation generated from reading ui file 'D:\__MY_PROJECT__\Python\RecognizeNumber\ui_mainwindow.ui'
 #
 # Created by: PyQt6 UI code generator 6.5.1
 #
@@ -12,15 +12,22 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(400, 552)
-        MainWindow.setMinimumSize(QtCore.QSize(400, 552))
-        MainWindow.setMaximumSize(QtCore.QSize(400, 552))
+        MainWindow.resize(400, 611)
+        MainWindow.setMinimumSize(QtCore.QSize(400, 611))
+        MainWindow.setMaximumSize(QtCore.QSize(400, 611))
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setContentsMargins(10, 10, 10, 10)
         self.gridLayout.setSpacing(5)
         self.gridLayout.setObjectName("gridLayout")
+        self.groupBox = QtWidgets.QGroupBox(parent=self.centralwidget)
+        self.groupBox.setStyleSheet("border: 1px solid black; border-radius: 5px;")
+        self.groupBox.setTitle("")
+        self.groupBox.setFlat(False)
+        self.groupBox.setCheckable(False)
+        self.groupBox.setObjectName("groupBox")
+        self.gridLayout.addWidget(self.groupBox, 2, 0, 1, 1)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setContentsMargins(0, -1, 0, -1)
         self.horizontalLayout_2.setSpacing(15)
@@ -264,13 +271,9 @@ class Ui_MainWindow(object):
         self.progressBar_9.setObjectName("progressBar_9")
         self.horizontalLayout.addWidget(self.progressBar_9)
         self.gridLayout.addLayout(self.horizontalLayout, 1, 0, 1, 1)
-        self.groupBox = QtWidgets.QGroupBox(parent=self.centralwidget)
-        self.groupBox.setStyleSheet("border: 1px solid black; border-radius: 5px;")
-        self.groupBox.setTitle("")
-        self.groupBox.setFlat(False)
-        self.groupBox.setCheckable(False)
-        self.groupBox.setObjectName("groupBox")
-        self.gridLayout.addWidget(self.groupBox, 2, 0, 1, 1)
+        self.pushButton_save = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton_save.setObjectName("pushButton_save")
+        self.gridLayout.addWidget(self.pushButton_save, 3, 0, 1, 1)
         self.gridLayout.setRowStretch(0, 1)
         self.gridLayout.setRowStretch(1, 100)
         self.gridLayout.setRowStretch(2, 250)
@@ -300,6 +303,7 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "7"))
         self.label_8.setText(_translate("MainWindow", "8"))
         self.label_9.setText(_translate("MainWindow", "9"))
+        self.pushButton_save.setText(_translate("MainWindow", "Save"))
         self.actionNew.setText(_translate("MainWindow", "New"))
         self.actionOpen.setText(_translate("MainWindow", "Open"))
         self.actionSave.setText(_translate("MainWindow", "Save"))

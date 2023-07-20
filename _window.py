@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'E:\MyProject\Python\RecognizeNumber\_window.ui'
+# Form implementation generated from reading ui file 'D:\__MY_PROJECT__\Python\RecognizeNumber\_window.ui'
 #
 # Created by: PyQt6 UI code generator 6.5.1
 #
@@ -16,7 +16,7 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         MainWindow.setMouseTracking(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:\\MyProject\\Python\\RecognizeNumber\\../../Downloads/128725.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("D:\\__MY_PROJECT__\\Python\\RecognizeNumber\\../../Downloads/128725.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);")
         MainWindow.setTabShape(QtWidgets.QTabWidget.TabShape.Rounded)
@@ -47,7 +47,7 @@ class Ui_MainWindow(object):
         MainWindow.addToolBar(QtCore.Qt.ToolBarArea.LeftToolBarArea, self.toolBar_2)
         self.action_eraser = QtGui.QAction(parent=MainWindow)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("E:\\MyProject\\Python\\RecognizeNumber\\../../Downloads/Без названия.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("D:\\__MY_PROJECT__\\Python\\RecognizeNumber\\../../Downloads/Без названия.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.action_eraser.setIcon(icon1)
         self.action_eraser.setMenuRole(QtGui.QAction.MenuRole.NoRole)
         self.action_eraser.setObjectName("action_eraser")
@@ -58,7 +58,7 @@ class Ui_MainWindow(object):
         self.action_text.setObjectName("action_text")
         self.action_brush = QtGui.QAction(parent=MainWindow)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("E:\\MyProject\\Python\\RecognizeNumber\\../../Downloads/w256h2561350817736brush.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("D:\\__MY_PROJECT__\\Python\\RecognizeNumber\\../../Downloads/w256h2561350817736brush.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.action_brush.setIcon(icon2)
         self.action_brush.setObjectName("action_brush")
         self.action_line = QtGui.QAction(parent=MainWindow)
