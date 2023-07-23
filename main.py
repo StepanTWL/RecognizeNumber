@@ -140,8 +140,11 @@ class Window(QMainWindow):
         # ndarray = np.frombuffer(buffer, dtype=dtype).reshape((height, width))
         # plt.imshow(ndarray, cmap='gray')  # Assuming it's a grayscale image
         # plt.show()
+        cropped_pixmap.save('image.png')
         numpydata = qimage_to_ndarray(cropped_pixmap)
-        number(numpydata)
+        plt.imshow(numpydata, cmap='gray')
+        plt.show()
+        #number(numpydata)
 
 
 
