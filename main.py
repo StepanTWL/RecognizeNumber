@@ -1,5 +1,6 @@
 import sys
 
+from PIL import Image
 from PyQt6 import QtGui
 from PyQt6.QtCore import Qt, QPoint
 from PyQt6.QtGui import QImage, QPainter, QPen, QPixmap, QCursor, QColor
@@ -90,11 +91,12 @@ class Window(QMainWindow):
         self.image.fill(color)
 
         self.drawings = False
-        self.brushSize = 15
+        self.brushSize = 38
         self.brushColor = Qt.GlobalColor.black
         self.lastPoint = QPoint()
 
         self.ui.pushButton_recognize.clicked.connect(self.recognize_picture)
+        self.ui.groupBox.customContextMenuRequested.connect(lambda: self.__contextMenu(self.ui.groupBox, None))
 
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton and self.check_position():
@@ -140,12 +142,28 @@ class Window(QMainWindow):
         # ndarray = np.frombuffer(buffer, dtype=dtype).reshape((height, width))
         # plt.imshow(ndarray, cmap='gray')  # Assuming it's a grayscale image
         # plt.show()
-        cropped_pixmap.save('image.png')
-        numpydata = qimage_to_ndarray(cropped_pixmap)
-        plt.imshow(numpydata, cmap='gray')
+        cropped_pixmap.save('image.jpg')
+        img_path = 'image.jpg'
+        img = keras.preprocessing.image.load_img(img_path)
+        image = img.resize((28, 28), Image.BILINEAR)
+        image = np.array(image, dtype=np.float32)
+        #numpydata = qimage_to_ndarray(cropped_pixmap)
+        plt.imshow(image, cmap='gray')
         plt.show()
         #number(numpydata)
 
+    def __contextMenu(self, QGroupBox, FunctionClear):
+        QGroupBox._normalMenu = QGroupBox.createStandardContextMenu()
+        self._addCustomMenuItems(QGroupBox._normalMenu, QGroupBox, FunctionClear)
+        QGroupBox._normalMenu.exec(QtGui.QCursor.pos())
+
+    def _addCustomMenuItems(self, menu, QPlainTextEdit, FunctionClear):
+        menu.addSeparator()
+        menu.addAction(u'Clear all', self.clearDisplay)
+
+    def clearDisplay(self):
+        color = QColor(240, 240, 240)
+        self.image.fill(color)
 
 
 if __name__ == '__main__':
