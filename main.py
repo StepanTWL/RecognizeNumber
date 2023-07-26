@@ -1,4 +1,6 @@
 import sys
+from itertools import chain
+
 import cv2
 
 from PIL import Image
@@ -34,13 +36,7 @@ def number(image):
     x_train = x_train / 255
     x_test = x_test / 255
     image = image / 255
-
-    print(type(x_test[0]))
-    print(type(image))
-    plt.imshow(x_test[0], cmap=plt.cm.binary)
-    plt.show()
-    plt.imshow(image, cmap=plt.cm.binary)
-    plt.show()
+    image = 1 - image
 
     y_train_cat = keras.utils.to_categorical(y_train, 10)
     y_test_cat = keras.utils.to_categorical(y_test, 10)
@@ -65,14 +61,11 @@ def number(image):
     model.evaluate(x_test, y_test_cat)  # проверка на тестовой выборке
 
     x = np.expand_dims(x_test[0], axis=0)  # что бы из 2х мерной матрицы сделать 3х мерную
-    print(x)
     x = np.expand_dims(image, axis=0)  # что бы из 2х мерной матрицы сделать 3х мерную
-    print(x)
     res = model.predict(x)  # можно подавать только 3х мерную матрицу (несколько изображений)
+    main.setProgressBars(res)
     print(res)
     print(f'Цифра: {np.argmax(res)}')  # индекс максимального значения
-    plt.imshow(image, cmap=plt.cm.binary)
-    plt.show()
 
     pred = model.predict(x_test)
     pred = np.argmax(pred, axis=1)  # axis=1 во второй области списка (слой3)
@@ -98,7 +91,7 @@ class Window(QMainWindow):
         self.lastPoint = QPoint()
 
         self.ui.pushButton_recognize.clicked.connect(self.recognize_picture)
-        self.ui.groupBox.customContextMenuRequested.connect(lambda: self.__contextMenu(self.ui.groupBox, None))
+        self.ui.pushButton_clear.triggered.connect(self.centralWidget().clearDisplay)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton and self.check_position():
@@ -153,22 +146,24 @@ class Window(QMainWindow):
         img = cv2.imread('image.png')
         image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         image = np.array(image)
-        plt.imshow(image, cmap='gray')
-        plt.show()
         number(image)
 
-    def __contextMenu(self, QGroupBox, FunctionClear):
-        QGroupBox._normalMenu = QGroupBox.createStandardContextMenu()
-        self._addCustomMenuItems(QGroupBox._normalMenu, QGroupBox, FunctionClear)
-        QGroupBox._normalMenu.exec(QtGui.QCursor.pos())
-
-    def _addCustomMenuItems(self, menu, QPlainTextEdit, FunctionClear):
-        menu.addSeparator()
-        menu.addAction(u'Clear all', self.clearDisplay)
-
     def clearDisplay(self):
+        self.image = QImage(self.size(), QImage.Format.Format_RGB32)
         color = QColor(240, 240, 240)
         self.image.fill(color)
+
+    def setProgressBars(self, arr):
+        self.ui.progressBar_0.setValue(int(arr[0][0] * 100))
+        self.ui.progressBar_1.setValue(int(arr[0][1] * 100))
+        self.ui.progressBar_2.setValue(int(arr[0][2] * 100))
+        self.ui.progressBar_3.setValue(int(arr[0][3] * 100))
+        self.ui.progressBar_4.setValue(int(arr[0][4] * 100))
+        self.ui.progressBar_5.setValue(int(arr[0][5] * 100))
+        self.ui.progressBar_6.setValue(int(arr[0][6] * 100))
+        self.ui.progressBar_7.setValue(int(arr[0][7] * 100))
+        self.ui.progressBar_8.setValue(int(arr[0][8] * 100))
+        self.ui.progressBar_9.setValue(int(arr[0][9] * 100))
 
 
 if __name__ == '__main__':
