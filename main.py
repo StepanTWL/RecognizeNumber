@@ -86,23 +86,25 @@ class Window(QMainWindow):
         self.image.fill(color)
 
         self.drawings = False
-        self.brushSize = 15
+        self.brushSize = 25
         self.brushColor = Qt.GlobalColor.black
         self.lastPoint = QPoint()
 
         self.ui.pushButton_recognize.clicked.connect(self.recognize_picture)
-        self.ui.pushButton_clear.triggered.connect(self.centralWidget().clearDisplay)
+        self.ui.pushButton_clear.clicked.connect(self.clearDisplay)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton and self.check_position():
             self.drawings = True
             self.lastPoint = event.position()
 
+
     def mouseMoveEvent(self, event):
         if event.buttons() & Qt.MouseButton.LeftButton and self.check_position():
             painter = QPainter(self.image)
-            painter.setPen(QPen(self.brushColor, self.brushSize, Qt.PenStyle.SolidLine))
+            painter.setPen(QPen(self.brushColor, self.brushSize, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap, Qt.PenJoinStyle.RoundJoin))
             painter.drawLine(self.lastPoint, event.position())
+            painter.end()
             self.lastPoint = event.position()
             self.update()
 
@@ -118,7 +120,8 @@ class Window(QMainWindow):
     def check_position(self) -> bool:
         cursor_pos = QCursor.pos()
         window_pos = self.mapFromGlobal(cursor_pos)
-        if self.ui.groupBox.x() < window_pos.x() < self.ui.groupBox.x() + self.ui.groupBox.width() and self.ui.groupBox.y() < window_pos.y() < self.ui.groupBox.y() + self.ui.groupBox.height():
+        if (self.ui.groupBox.x() + (self.brushSize + 1)//2) < window_pos.x() < (self.ui.groupBox.x() + self.ui.groupBox.width() - (self.brushSize + 1)//2) and \
+           (self.ui.groupBox.y() + (self.brushSize + 1)//2) < window_pos.y() < (self.ui.groupBox.y() + self.ui.groupBox.height() - (self.brushSize + 1)//2):
             return True
         else:
             return False
@@ -149,9 +152,9 @@ class Window(QMainWindow):
         number(image)
 
     def clearDisplay(self):
-        self.image = QImage(self.size(), QImage.Format.Format_RGB32)
         color = QColor(240, 240, 240)
         self.image.fill(color)
+        self.update()
 
     def setProgressBars(self, arr):
         self.ui.progressBar_0.setValue(int(arr[0][0] * 100))

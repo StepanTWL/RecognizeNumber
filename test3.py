@@ -15,7 +15,7 @@ class Canvas(QWidget):
 
 		self.drawing = False
 		self.brushSize = 15
-		self._clear_size = 20
+		#self._clear_size = 20
 		self.brushColor = QtGui.QColor(QtCore.Qt.GlobalColor.blue)
 		self.lastPoint = QtCore.QPoint()
 		self.change = False
